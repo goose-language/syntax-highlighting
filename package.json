@@ -6,6 +6,11 @@
   "engines": {
     "vscode": "^1.70.0"
   },
+  "license": "MIT",
+  "icon": "assets/logo.png",
+  "publisher": "thomasvergne",
+  "author": "thomasvergne",
+  "repository": "https://github.com/quark-lang/quark-vscode",
   "categories": [
     "Programming Languages"
   ],
