@@ -14,7 +14,11 @@
       "id": "qrk",
       "aliases": ["Quark", "qrk"],
       "extensions": [".qrk"],
-      "configuration": "./language-configuration.json"
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "dark": "./assets/dark.png",
+        "light": "./assets/light.png"
+      }
     }],
     "grammars": [{
       "language": "qrk",
