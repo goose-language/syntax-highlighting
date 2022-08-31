@@ -1,0 +1,25 @@
+{
+  "name": "quark-ls",
+  "displayName": "Quark",
+  "description": "Official Quark language extension.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "qrk",
+      "aliases": ["Quark", "qrk"],
+      "extensions": [".qrk"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "qrk",
+      "scopeName": "source.qrk",
+      "path": "./syntaxes/qrk.tmLanguage.json"
+    }]
+  }
+}
