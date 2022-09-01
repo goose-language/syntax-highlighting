@@ -43,11 +43,11 @@
 		"keyfn": {
 			"patterns": [
 				{
-					"match": "(?<=(\\s|\\(|\\[|\\{))(if|do|let|fn|throw|match)(?=(\\s|\\)|\\]|\\}))",
+					"match": "(?<=(\\s|\\(|\\[|\\{))(if|do|let|fn|error)(?=(\\s|\\)|\\]|\\}))",
 					"name": "storage.control.qrk"
 				},
 				{
-					"match": "(?<=(\\s|\\(|\\[|\\{))(declare|import|(def[\\p{Ll}\\-]*))(?=(\\s|\\)|\\]|\\}))",
+					"match": "(?<=(\\s|\\(|\\[|\\{))(declare|import|instance|class|data|(def[\\p{Ll}\\-]*))(?=(\\s|\\)|\\]|\\}))",
 					"name": "keyword.control.qrk"
 				}
 			]
