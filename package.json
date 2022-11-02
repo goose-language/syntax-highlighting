@@ -1,8 +1,8 @@
 {
-  "name": "quark-ls",
-  "displayName": "Quark",
-  "description": "Official Quark language extension.",
-  "version": "0.0.1",
+  "name": "pure-language-server",
+  "displayName": "Pure",
+  "description": "Official Pure language extension.",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -16,9 +16,9 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "qrk",
-      "aliases": ["Quark", "qrk"],
-      "extensions": [".qrk"],
+      "id": "pure",
+      "aliases": ["Pure", "pure"],
+      "extensions": [".pure"],
       "configuration": "./language-configuration.json",
       "icon": {
         "dark": "./assets/dark.png",
@@ -26,9 +26,9 @@
       }
     }],
     "grammars": [{
-      "language": "qrk",
-      "scopeName": "source.qrk",
-      "path": "./syntaxes/qrk.tmLanguage.json"
+      "language": "pure",
+      "scopeName": "source.pure",
+      "path": "./syntaxes/pure.tmLanguage.json"
     }]
   }
 }
