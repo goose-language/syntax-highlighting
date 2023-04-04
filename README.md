@@ -1,3 +1,3 @@
-# pure-language-server README
+# goose-language-server README
 
-Pure programming language support for language syntax highlighting in VSCode.
+Goose programming language support for language syntax highlighting in VSCode.
