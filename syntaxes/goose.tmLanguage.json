@@ -1,0 +1,342 @@
+{
+  "repository": {
+    "comment": {
+      "patterns": [
+        {
+          "name": "comment.block.goose",
+          "begin": "/\\*",
+          "end": "\\*/"
+        },
+        {
+          "name": "comment.line.double-slash.goose",
+          "begin": "//",
+          "end": "$"
+        }
+      ]
+    },
+    "entity": {
+      "patterns": [
+        {
+          "name": "support.function.definition.goose",
+          "match": "\\b(declare)\\s+(\\w+)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
+            },
+            "2": {
+              "name": "support.function.name"
+            }
+          }
+        },
+        {
+          "match": "\\b(\\w+)(?=\\s*\\()",
+          "name": "entity.name.function.goose"
+        },
+        {
+          "match": "\\b(def)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\(((\\w+(\\s*,\\s*)?)*)\\)",
+          "name": "support.function.goose",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
+            },
+            "2": {
+              "name": "entity.name.function.goose"
+            },
+            "3": {
+              "name": "entity.name.variable.goose"
+            }
+          }
+        },
+        {
+          "match": "\\b(module)\\s+(\\w+)",
+          "name": "support.module.goose",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
+            },
+            "2": {
+              "name": "support.type"
+            }
+          }
+        },
+        {
+          "match": "\\b(def)\\s+(\\w+)\\s+=",
+          "name": "support.function.goose",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
+            },
+            "2": {
+              "name": "entity.name.variable.goose"
+            }
+          }
+        },
+        {
+          "match": "\\((([a-zA-Z][a-zA-Z0-9_]*(\\s*,\\s*)?)*)\\)\\s+(->)",
+          "name": "entity.name.lambda.goose",
+          "captures": {
+            "2": {
+              "name": "entity.name.variable.goose"
+            }
+          }
+        }
+      ]
+    },
+    "operator": {
+      "patterns": [
+        {
+          "name": "keyword.operator.member-access.goose",
+          "match": "(\\.)(?=parse)"
+        },
+        {
+          "name": "keyword.operator.member-access.goose",
+          "match": "\\s(\\.)\\b"
+        },
+        {
+          "name": "keyword.operator.member-access.goose",
+          "match": "\\b(\\.)\\b"
+        },
+        {
+          "name": "keyword.operator.member-access.goose",
+          "match": "\\B(\\.)\\b"
+        },
+        {
+          "name": "keyword.operator.path.goose",
+          "match": "(\\:\\:)"
+        },
+        {
+          "name": "keyword.operator.sigil.goose",
+          "match": "[&*](?=[a-zA-Z0-9_\\(\\[\\|\\\"']+)"
+        },
+        {
+          "name": "keyword.operator.assignment.goose",
+          "match": "(\\=)"
+        },
+        {
+          "name": "keyword.operator.assignment.goose",
+          "match": "\\b(=)\\b"
+        },
+        {
+          "name": "keyword.operator.arithmetic.goose",
+          "match": "(!|\\+|-|/|\\*|%|\\^|\\||<<|>>)"
+        },
+        {
+          "name": "keyword.operator.comparison.goose",
+          "match": "(&&|\\|\\||==|!=)"
+        },
+        {
+          "name": "keyword.operator.comparison.goose",
+          "match": "\\s(<|>)"
+        },
+        {
+          "name": "keyword.operator.comparison.goose",
+          "match": "\\B(<=|>=)\\B"
+        }
+      ]
+    },
+    "constant": {
+      "patterns": [
+        {
+          "comment": "Floating point literal (fraction)",
+          "name": "constant.numeric.float.goose",
+          "match": "\\b[0-9][0-9_]*\\.[0-9][0-9_]*([eE][+-]?[0-9_]+)?(f32|f64)?\\b"
+        },
+        {
+          "comment": "Floating point literal (exponent)",
+          "name": "constant.numeric.float.goose",
+          "match": "\\b[0-9][0-9_]*(\\.[0-9][0-9_]*)?[eE][+-]?[0-9_]+(f32|f64)?\\b"
+        },
+        {
+          "comment": "Floating point literal (typed)",
+          "name": "constant.numeric.float.goose",
+          "match": "\\b[0-9][0-9_]*(\\.[0-9][0-9_]*)?([eE][+-]?[0-9_]+)?(f32|f64)\\b"
+        },
+        {
+          "comment": "Integer literal (decimal)",
+          "name": "constant.numeric.integer.decimal.goose",
+          "match": "\\b[0-9][0-9_]*([ui](8|16|32|64|128|s|size))?\\b"
+        },
+        {
+          "comment": "Integer literal (hexadecimal)",
+          "name": "constant.numeric.integer.hexadecimal.goose",
+          "match": "\\b0x[a-fA-F0-9_]+([ui](8|16|32|64|128|s|size))?\\b"
+        },
+        {
+          "comment": "Integer literal (octal)",
+          "name": "constant.numeric.integer.octal.goose",
+          "match": "\\b0o[0-7_]+([ui](8|16|32|64|128|s|size))?\\b"
+        },
+        {
+          "comment": "Integer literal (binary)",
+          "name": "constant.numeric.integer.binary.goose",
+          "match": "\\b0b[01_]+([ui](8|16|32|64|128|s|size))?\\b"
+        },
+        {
+          "name": "constant.language.boolean.goose",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    },
+    "keyword": {
+      "patterns": [
+        {
+          "name": "variable.language.self.goose",
+          "match": "\\b(self)\\b"
+        },
+        {
+          "name": "keyword.control.goose",
+          "match": "\\b(break|continue|return|while|else|if|in|return|while|for|do|end|then|public|declare|extern)\\b"
+        },
+        {
+          "name": "keyword.other.goose",
+          "match": "\\b(import)\\b"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "storage.type.core.goose",
+          "match": "([A-Z]\\w*)\\[",
+          "captures": {
+            "1": {
+              "name": "entity.name.type.goose"
+            }
+          }
+        },
+        {
+            "name": "storage.type.core.goose",
+            "match": "\\b(bool|char|int|float|string|nil)\\b"
+        },
+        {
+          "name": "punctuation.terminator.goose",
+          "match": ";"
+        },
+        {
+          "name": "punctuation.other.comma.goose",
+          "match": ","
+        },
+        {
+          "name": "punctuation.other.paren.goose",
+          "match": "[)(]"
+        }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "name": "constant.character.escape.goose",
+          "match": "\\\\(x[0-9A-Fa-f]{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)"
+        },
+        {
+          "name": "constant.character.goose",
+          "match": "b?'([^'\\\\]|\\\\(x[0-9A-Fa-f]{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.))'"
+        },
+        {
+          "name": "string.quoted.double.goose",
+          "begin": "b?\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.goose",
+              "match": "\\\\(x[0-9A-Fa-f]{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)"
+            },
+            {
+              "name": "constant.other.placeholder.goose",
+              "match": "(\\{)([a-zA-Z0-9_?:$.*<>]+)?(\\})"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.raw.goose",
+          "begin": "b?r(#*)\"",
+          "end": "\"\\1"
+        }
+      ]
+    },
+    "variable": {
+      "patterns": [
+        {
+          "name": "variable.other.path.goose",
+          "match": "([a-zA-Z_][a-zA-Z0-9_]*)(?=::)",
+          "captures": {
+            "1": {
+              "name": "support.type"
+            }
+          }
+        },
+        {
+          "name": "variable.other.goose",
+          "match": "(?<!\\:\\s)([a-zA-Z_][a-zA-Z0-9_]*)\\s(?==)"
+        },
+        {
+          "match": "([a-zA-Z_][a-zA-Z0-9_]+)(?=[:] )",
+          "captures": {
+            "1": {
+              "name": "variable.other.goose"
+            }
+          }
+        },
+        {
+          "match": "(?<!\\:\\s)([a-zA-Z_]\\s)(?==)",
+          "captures": {
+            "1": {
+              "name": "variable.other.goose"
+            }
+          }
+        },
+        {
+          "match": "([a-zA-Z_]+)(?=[:] )",
+          "captures": {
+            "1": {
+              "name": "variable.other.goose"
+            }
+          }
+        },
+        {
+          "match": "([|])(\\w+)([|])",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.goose"
+            },
+            "2": {
+              "name": "variable.other.map.goose"
+            },
+            "3": {
+              "name": "keyword.operator.goose"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "goose",
+  "scopeName": "source.goose",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#constant"
+    },
+    {
+      "include": "#entity"
+    },
+    {
+      "include": "#punctuation"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#operator"
+    },
+    {
+      "include": "#keyword"
+    }
+  ]
+}
