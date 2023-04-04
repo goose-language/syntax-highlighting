@@ -1,34 +1,34 @@
 {
-  "name": "pure-language-server",
-  "displayName": "Pure",
-  "description": "Official Pure language extension.",
-  "version": "0.0.4",
+  "name": "goose-syntax-highlighting",
+  "displayName": "Goose syntax highlighting",
+  "description": "Official Goose language extension.",
+  "version": "0.0.1",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.22.0"
   },
   "license": "MIT",
   "icon": "assets/logo.png",
   "publisher": "thomasvergne",
   "author": "thomasvergne",
-  "repository": "https://github.com/quark-lang/quark-vscode",
+  "repository": "https://github.com/goose-language/syntax-highlighting",
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
     "languages": [{
-      "id": "pure",
-      "aliases": ["Pure", "pure"],
-      "extensions": [".pure"],
+      "id": "goose",
+      "aliases": ["Goose", "goose"],
+      "extensions": [".goose"],
       "configuration": "./language-configuration.json",
       "icon": {
-        "dark": "./assets/dark.png",
-        "light": "./assets/light.png"
+        "dark": "./assets/icon.png",
+        "light": "./assets/icon.png"
       }
     }],
     "grammars": [{
-      "language": "pure",
-      "scopeName": "source.pure",
-      "path": "./syntaxes/pure.tmLanguage.json"
+      "language": "goose",
+      "scopeName": "source.goose",
+      "path": "./syntaxes/goose.tmLanguage.json"
     }]
   }
 }
