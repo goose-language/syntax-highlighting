@@ -29,8 +29,28 @@
           }
         },
         {
-          "match": "\\b(\\w+)(?=\\s*\\()",
-          "name": "entity.name.function.goose"
+          "match": "\\b(fun)\\s+\\(((\\w+(\\s*,\\s*)?)*)\\)",
+          "name": "support.function.goose",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
+            },
+            "2": {
+              "name": "entity.name.variable.goose"
+            }
+          }
+        },
+        {
+          "match": "\\b(enum)\\s+(\\w+)",
+          "name": "support.function.goose",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
+            },
+            "2": {
+              "name": "support.type"
+            }
+          }
         },
         {
           "match": "\\b(def)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\(((\\w+(\\s*,\\s*)?)*)\\)",
@@ -66,15 +86,6 @@
             "1": {
               "name": "keyword.control.goose"
             },
-            "2": {
-              "name": "entity.name.variable.goose"
-            }
-          }
-        },
-        {
-          "match": "\\((([a-zA-Z][a-zA-Z0-9_]*(\\s*,\\s*)?)*)\\)\\s+(->)",
-          "name": "entity.name.lambda.goose",
-          "captures": {
             "2": {
               "name": "entity.name.variable.goose"
             }
@@ -185,7 +196,7 @@
         },
         {
           "name": "keyword.control.goose",
-          "match": "\\b(break|continue|return|while|else|if|in|return|while|for|do|end|then|public|declare|extern)\\b"
+          "match": "\\b(break|continue|return|while|else|if|in|return|while|for|do|end|then|public|declare|extern|fun|match|enum)\\b"
         },
         {
           "name": "keyword.other.goose",
@@ -203,6 +214,10 @@
               "name": "entity.name.type.goose"
             }
           }
+        },
+        {
+          "match": "\\b(\\w+)(?=\\s*\\()",
+          "name": "entity.name.function.goose"
         },
         {
             "name": "storage.type.core.goose",
