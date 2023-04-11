@@ -17,6 +17,18 @@
     "entity": {
       "patterns": [
         {
+          "name": "support.type.definition",
+          "match": "\\b(type)\\s+(\\w+)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
+            },
+            "2": {
+              "name": "support.type"
+            }
+          }
+        },
+        {
           "name": "support.function.definition.goose",
           "match": "\\b(declare)\\s+(\\w+)",
           "captures": {
@@ -29,14 +41,41 @@
           }
         },
         {
-          "match": "\\b(fun)\\s+\\(((\\w+(\\s*,\\s*)?)*)\\)",
-          "name": "support.function.goose",
+          "match": "\\b(import)\\s*(\"[^\"]+\")\\s*(as)\\s+(\\w+)",
+          "name": "keyword.control.goose",
           "captures": {
             "1": {
               "name": "keyword.control.goose"
             },
             "2": {
-              "name": "entity.name.variable.goose"
+              "name": "string"
+            },
+            "3": {
+              "name": "keyword.control.goose"
+            },
+            "4": {
+              "name": "support.type"
+            }
+          }
+        },
+        {
+          "match": "\\b(import)\\s*(\"[^\"]+\")",
+          "name": "keyword.control.goose",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
+            },
+            "2": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "match": "\\b(fun)\\s*\\(",
+          "name": "support.function.goose",
+          "captures": {
+            "1": {
+              "name": "keyword.control.goose"
             }
           }
         },
@@ -53,7 +92,7 @@
           }
         },
         {
-          "match": "\\b(def)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\(((\\w+(\\s*,\\s*)?)*)\\)",
+          "match": "\\b(def)\\s+([a-zA-Z][a-zA-Z0-9_]*)(\\[(([a-z][a-zA-Z0-9_]*((\\s*,\\s*)?))*)\\])?\\(",
           "name": "support.function.goose",
           "captures": {
             "1": {
@@ -63,7 +102,7 @@
               "name": "entity.name.function.goose"
             },
             "3": {
-              "name": "entity.name.variable.goose"
+              "name": "support.type"
             }
           }
         },
